@@ -1,0 +1,18 @@
+defaults: &defaults
+  host: 127.0.0.1
+  port: 27017
+
+development:
+  <<: *defaults
+  database: orms_development
+
+test:
+  <<: *defaults
+  database: orms_test
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
+  database: orms
+  username: <%= ENV['MONGO_USERNAME'] %>
+  password: <%= ENV['MONGO_PASSWORD'] %>
